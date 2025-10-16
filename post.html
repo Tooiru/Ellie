@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пост</title>
+    <link rel="stylesheet" href="post.css">
+</head>
+<body>
+    <header class="post-header">
+        <a href="website.html" class="back">←</a>
+        <div class="user-info">
+            <img src="images/profile.jpg" alt="Аватар">
+            <span>@tooiru_</span>
+        </div>
+        <div class="menu">⋯</div>
+    </header>
+
+    <main class="post-content">
+        <img id="post-image" src="images/post1.jpg" alt="Пост">
+    </main>
+
+    <footer class="post-footer">
+        <div class="icons">
+            <span>❤</span>
+            <span>💬</span>
+            <span>↪</span>
+            <span class="save">...</span>
+        </div>
+        <div class="likes">
+            <span id="like-text"></span> отметок "Нравится"
+        </div>
+        <div class="caption">
+            <strong>@tooiru_</strong> <span id="caption-text"></span>
+        </div>
+    </footer>
+
+    <script>
+    const captions = {
+        1: 'Think that gun is going to be enough?',
+        2: 'Working and didnt talking',
+        3: 'that is a date, isnt it?',
+        4: 'Sweet dreams, rookie'
+    };
+    const likes = {
+        1: '0911',
+        2: '2510',
+        3: '1011',
+        4: '1105'
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const postImage = document.getElementById('post-image');
+    const captionText = document.getElementById('caption-text');
+    const likeText = document.getElementById('like-text');
+
+    postImage.src = `images/post${id}.jpg`;
+    captionText.textContent = captions[id];
+    likeText.textContent = likes[id];
+</script>
+</body>
+</html>
